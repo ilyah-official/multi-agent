@@ -11,6 +11,7 @@ public class BodyPartAgent : Agent
 
     // Internal variables
     [HideInInspector] public Transform buddyAgent;
+    [HideInInspector] public Transform opposingAgent1, opposingAgent2;
     [HideInInspector] public Transform targetObject;
     [HideInInspector] public AgentManager agentManager;
     [HideInInspector] public bool randomizeStartPosition;
@@ -34,6 +35,8 @@ public class BodyPartAgent : Agent
         sensor.AddObservation(transform.position);
         sensor.AddObservation(buddyAgent.position);
         sensor.AddObservation(targetObject.position);
+        sensor.AddObservation(opposingAgent1.position);
+        sensor.AddObservation(opposingAgent2.position);
     }
     public override void OnActionReceived(ActionBuffers actions)
     {

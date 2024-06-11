@@ -262,6 +262,8 @@ MonoBehaviour:
   namaTim: Tim Kuning
   moveSpeed: 5
   buddyAgent: {fileID: 0}
+  opposingAgent1: {fileID: 0}
+  opposingAgent2: {fileID: 0}
   targetObject: {fileID: 0}
   agentManager: {fileID: 0}
   randomizeStartPosition: 0
@@ -294,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 15
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -303,7 +305,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 1cbe400bf950dbb4da7d938c48c6c6d8, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: a539c4caa226f8d448d835ada6a38ef0, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 2
   m_BehaviorName: AgentBehaviour
@@ -668,6 +670,8 @@ MonoBehaviour:
   namaTim: Tim Biru
   moveSpeed: 5
   buddyAgent: {fileID: 0}
+  opposingAgent1: {fileID: 0}
+  opposingAgent2: {fileID: 0}
   targetObject: {fileID: 0}
   agentManager: {fileID: 0}
   randomizeStartPosition: 0
@@ -700,7 +704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 15
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -709,7 +713,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 957fa53c30b02c34abcd75eea0169ce2, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: c83f7b211783a9e4696f9add550ab90e, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 2
   m_BehaviorName: AgentBehaviour
@@ -1094,6 +1098,8 @@ MonoBehaviour:
   namaTim: Tim Kuning
   moveSpeed: 5
   buddyAgent: {fileID: 0}
+  opposingAgent1: {fileID: 0}
+  opposingAgent2: {fileID: 0}
   targetObject: {fileID: 0}
   agentManager: {fileID: 0}
   randomizeStartPosition: 0
@@ -1126,7 +1132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 15
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -1135,7 +1141,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 1cbe400bf950dbb4da7d938c48c6c6d8, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: a539c4caa226f8d448d835ada6a38ef0, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 2
   m_BehaviorName: AgentBehaviour
@@ -4748,6 +4754,8 @@ MonoBehaviour:
   namaTim: Tim Biru
   moveSpeed: 5
   buddyAgent: {fileID: 0}
+  opposingAgent1: {fileID: 0}
+  opposingAgent2: {fileID: 0}
   targetObject: {fileID: 0}
   agentManager: {fileID: 0}
   randomizeStartPosition: 0
@@ -4780,7 +4788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 9
+    VectorObservationSize: 15
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -4789,7 +4797,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 957fa53c30b02c34abcd75eea0169ce2, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: c83f7b211783a9e4696f9add550ab90e, type: 3}
   m_InferenceDevice: 2
   m_BehaviorType: 2
   m_BehaviorName: AgentBehaviour

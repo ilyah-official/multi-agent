@@ -25,18 +25,26 @@ public class AgentManager : MonoBehaviour
         team_blue[0].buddyAgent = team_blue[1].transform;
         team_blue[0].targetObject = target;
         team_blue[0].agentManager = this;
+        team_blue[0].opposingAgent1 = team_yellow[0].transform;
+        team_blue[0].opposingAgent2 = team_yellow[1].transform;
 
         team_blue[1].buddyAgent = team_blue[0].transform;
         team_blue[1].targetObject = target;
         team_blue[1].agentManager = this;
+        team_blue[1].opposingAgent1 = team_yellow[0].transform;
+        team_blue[1].opposingAgent2 = team_yellow[1].transform;
 
         team_yellow[0].buddyAgent = team_yellow[1].transform;
         team_yellow[0].targetObject = target;
         team_yellow[0].agentManager = this;
+        team_yellow[0].opposingAgent1 = team_blue[0].transform;
+        team_yellow[0].opposingAgent2 = team_blue[1].transform;
 
         team_yellow[1].buddyAgent = team_yellow[0].transform;
         team_yellow[1].targetObject = target;
         team_yellow[1].agentManager = this;
+        team_yellow[1].opposingAgent1 = team_blue[0].transform;
+        team_yellow[1].opposingAgent2 = team_blue[1].transform;
     }
     // Update is called once per frame
     void Update()
