@@ -5,6 +5,7 @@ using TMPro;
 
 public class Statistics : MonoBehaviour
 {
+    [SerializeField] private AgentManager agentManager;
     [SerializeField] private TextMeshProUGUI tmp_Episode, tmp_rewardBiru, tmp_rewardKuning;
     [SerializeField] private TextMeshProUGUI[] tmp_agentName;
     [SerializeField] private TextMeshProUGUI[] tmp_agentMoveX;
@@ -12,9 +13,9 @@ public class Statistics : MonoBehaviour
     [SerializeField] private BodyPartAgent[] agents;
     void Update()
     {
-        tmp_Episode.SetText("Episode: " + GoalManager.currentEpisode);
-        tmp_rewardBiru.SetText("Reward Tim Biru: " + GoalManager.totalRewardTimBiru);
-        tmp_rewardKuning.SetText("Reward Tim Kuning: " + GoalManager.totalRewardTimKuning);
+        tmp_Episode.SetText("Episode: " + agentManager.currentEpisode);
+        tmp_rewardBiru.SetText("Reward Tim Biru: " + agentManager.totalRewardBiru);
+        tmp_rewardKuning.SetText("Reward Tim Kuning: " + agentManager.totalRewardKuning);
 
         for (int i = 0; i < tmp_agentName.Length; i++)
         {
