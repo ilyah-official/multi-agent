@@ -305,9 +305,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 212c29bb4ea88aa4cae7b279d4a56bda, type: 3}
-  m_InferenceDevice: 2
-  m_BehaviorType: 2
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
   m_BehaviorName: AgentBehaviour
   TeamId: 0
   m_UseChildSensors: 1
@@ -667,9 +667,9 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 10000
+  MaxStep: 5000
   namaTim: Tim Biru
-  moveSpeed: 5
+  moveSpeed: 10
   buddyAgent: {fileID: 0}
   opposingAgent1: {fileID: 0}
   opposingAgent2: {fileID: 0}
@@ -714,9 +714,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: a26b9f9c651311743bc9815a51653457, type: 3}
-  m_InferenceDevice: 2
-  m_BehaviorType: 2
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
   m_BehaviorName: AgentBehaviour
   TeamId: 0
   m_UseChildSensors: 1
@@ -1142,9 +1142,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 212c29bb4ea88aa4cae7b279d4a56bda, type: 3}
-  m_InferenceDevice: 2
-  m_BehaviorType: 2
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
   m_BehaviorName: AgentBehaviour
   TeamId: 0
   m_UseChildSensors: 1
@@ -4798,9 +4798,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: a26b9f9c651311743bc9815a51653457, type: 3}
-  m_InferenceDevice: 2
-  m_BehaviorType: 2
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
   m_BehaviorName: AgentBehaviour
   TeamId: 0
   m_UseChildSensors: 1

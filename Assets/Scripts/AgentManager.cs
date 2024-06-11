@@ -5,10 +5,11 @@ using UnityEngine;
 public class AgentManager : MonoBehaviour
 {
     // Settings
-    [SerializeField] private BodyPartAgent[] team_blue;
-    [SerializeField] private BodyPartAgent[] team_yellow;
+    [SerializeField] public BodyPartAgent[] team_blue;
+    [SerializeField] public BodyPartAgent[] team_yellow;
     [SerializeField] private Transform target;
     [SerializeField] private bool RandomizeAgentPosition = true;
+    public bool isBuildMode = false;
 
     // Skor
     [HideInInspector] public string currentEpisode;
@@ -19,6 +20,13 @@ public class AgentManager : MonoBehaviour
     private int result = 0;
     private bool call_end = false;
     private void Start()
+    {
+        if (!isBuildMode)
+        {
+            InitializeAgents();
+        }
+    }
+    public void InitializeAgents()
     {
         totalRewardBiru = 0;
         totalRewardKuning = 0;
@@ -49,34 +57,78 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentEpisode = team_blue[0].CompletedEpisodes.ToString(); // semua agen telah dilakukan sinkronisasi episode, jadi setiap agen pasti memiliki episode yg sama
-
-        call_end = false;
-        result = 0;
-        SetAgentStartPositionBehaviour(RandomizeAgentPosition);
-        if (team_blue != null && team_blue.Length == 2)
+        if (!isBuildMode)
         {
-            if (team_yellow != null && team_yellow.Length == 2)
-            {
-                // BLUE
-                result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
-                if (result == 1)
-                {
-                    team_blue[0].SetReward(+5f);
-                    team_blue[1].SetReward(+5f);
-                    totalRewardBiru += 5;
-                    team_yellow[0].SetReward(-1f);
-                    team_yellow[1].SetReward(-1f);
-                    totalRewardKuning -= 1;
-                    call_end = true;
-                }
-                else if (result == -1)
-                {
-                    team_blue[0].SetReward(-1f);
-                    team_blue[1].SetReward(-1f);
-                    call_end = true;
-                }
+            currentEpisode = team_blue[0].CompletedEpisodes.ToString(); // semua agen telah dilakukan sinkronisasi episode, jadi setiap agen pasti memiliki episode yg sama
 
+            call_end = false;
+            result = 0;
+            SetAgentStartPositionBehaviour(RandomizeAgentPosition);
+            if (team_blue != null && team_blue.Length == 2)
+            {
+                if (team_yellow != null && team_yellow.Length == 2)
+                {
+                    // BLUE
+                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
+                    if (result == 1)
+                    {
+                        team_blue[0].SetReward(+5f);
+                        team_blue[1].SetReward(+5f);
+                        totalRewardBiru += 5;
+                        team_yellow[0].SetReward(-1f);
+                        team_yellow[1].SetReward(-1f);
+                        totalRewardKuning -= 1;
+                        call_end = true;
+                    }
+                    else if (result == -1)
+                    {
+                        team_blue[0].SetReward(-1f);
+                        team_blue[1].SetReward(-1f);
+                        call_end = true;
+                    }
+
+                    // YELLOW
+                    result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, Color.yellow);
+                    if (result == 1)
+                    {
+                        team_yellow[0].SetReward(+5f);
+                        team_yellow[1].SetReward(+5f);
+                        totalRewardKuning += 5;
+                        team_blue[0].SetReward(-1f);
+                        team_blue[1].SetReward(-1f);
+                        totalRewardBiru -= 1;
+                        call_end = true;
+                    }
+                    else if (result == -1)
+                    {
+                        team_yellow[0].SetReward(-1f);
+                        team_yellow[1].SetReward(-1f);
+                        totalRewardKuning -= 1;
+                        call_end = true;
+                    }
+                }
+                else
+                {
+                    // BLUE
+                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
+                    if (result == 1)
+                    {
+                        team_blue[0].SetReward(+5f);
+                        team_blue[1].SetReward(+5f);
+                        totalRewardBiru += 5;
+                        call_end = true;
+                    }
+                    else if (result == -1)
+                    {
+                        team_blue[0].SetReward(-1f);
+                        team_blue[1].SetReward(-1f);
+                        totalRewardBiru -= 1;
+                        call_end = true;
+                    }
+                }
+            }
+            else if (team_yellow != null && team_yellow.Length == 2)
+            {
                 // YELLOW
                 result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, Color.yellow);
                 if (result == 1)
@@ -84,9 +136,6 @@ public class AgentManager : MonoBehaviour
                     team_yellow[0].SetReward(+5f);
                     team_yellow[1].SetReward(+5f);
                     totalRewardKuning += 5;
-                    team_blue[0].SetReward(-1f);
-                    team_blue[1].SetReward(-1f);
-                    totalRewardBiru -= 1;
                     call_end = true;
                 }
                 else if (result == -1)
@@ -95,51 +144,13 @@ public class AgentManager : MonoBehaviour
                     team_yellow[1].SetReward(-1f);
                     totalRewardKuning -= 1;
                     call_end = true;
-                }   
-            }
-            else
-            {
-                // BLUE
-                result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
-                if (result == 1)
-                {
-                    team_blue[0].SetReward(+5f);
-                    team_blue[1].SetReward(+5f);
-                    totalRewardBiru += 5;
-                    call_end = true;
-                }
-                else if (result == -1)
-                {
-                    team_blue[0].SetReward(-1f);
-                    team_blue[1].SetReward(-1f);
-                    totalRewardBiru -= 1;
-                    call_end = true;
                 }
             }
-        }
-        else if (team_yellow != null && team_yellow.Length == 2)
-        {
-            // YELLOW
-            result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, Color.yellow);
-            if (result == 1)
-            {
-                team_yellow[0].SetReward(+5f);
-                team_yellow[1].SetReward(+5f);
-                totalRewardKuning += 5;
-                call_end = true;
-            }
-            else if (result == -1)
-            {
-                team_yellow[0].SetReward(-1f);
-                team_yellow[1].SetReward(-1f);
-                totalRewardKuning -= 1;
-                call_end = true;
-            }
-        }
 
-        if (call_end)
-        {
-            ForceEndEpisodeForAllAgents();
+            if (call_end)
+            {
+                ForceEndEpisodeForAllAgents();
+            }
         }
     }
 
