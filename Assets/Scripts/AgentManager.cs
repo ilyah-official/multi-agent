@@ -9,6 +9,7 @@ public class AgentManager : MonoBehaviour
     [SerializeField] public BodyPartAgent[] team_yellow;
     [SerializeField] private Transform target;
     [SerializeField] private bool RandomizeAgentPosition = true;
+    [SerializeField] private LineRenderer yellowLine, blueLine;
     public bool isBuildMode = false;
 
     // Skor
@@ -69,7 +70,7 @@ public class AgentManager : MonoBehaviour
                 if (team_yellow != null && team_yellow.Length == 2)
                 {
                     // BLUE
-                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
+                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, blueLine);
                     if (result == 1)
                     {
                         team_blue[0].SetReward(+5f);
@@ -88,7 +89,7 @@ public class AgentManager : MonoBehaviour
                     }
 
                     // YELLOW
-                    result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, Color.yellow);
+                    result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, yellowLine);
                     if (result == 1)
                     {
                         team_yellow[0].SetReward(+5f);
@@ -110,7 +111,7 @@ public class AgentManager : MonoBehaviour
                 else
                 {
                     // BLUE
-                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, Color.blue);
+                    result = InitializeBond(team_blue[0].transform.position, team_blue[1].transform.position, blueLine);
                     if (result == 1)
                     {
                         team_blue[0].SetReward(+5f);
@@ -130,7 +131,7 @@ public class AgentManager : MonoBehaviour
             else if (team_yellow != null && team_yellow.Length == 2)
             {
                 // YELLOW
-                result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, Color.yellow);
+                result = InitializeBond(team_yellow[0].transform.position, team_yellow[1].transform.position, yellowLine);
                 if (result == 1)
                 {
                     team_yellow[0].SetReward(+5f);
@@ -196,24 +197,22 @@ public class AgentManager : MonoBehaviour
     /// <param name="a">Posisi agen pertama</param>
     /// <param name="b">Posisi agen kedua</param>
     /// <returns>Sebuah integer, 1 = tali kena target, -1 = kena selain target, 0 = tali tidak kena benda apapun</returns>
-    private int InitializeBond(Vector3 a, Vector3 b, Color c)
+    private int InitializeBond(Vector3 a, Vector3 b, LineRenderer line)
     {
+        line.SetPosition(0, a);
+        line.SetPosition(1, b);
         if (Physics.Raycast(a, b - a, out tali))
         {
             if (tali.collider.gameObject.layer == LayerMask.NameToLayer("Target"))
             {
-                Debug.DrawLine(a, b, Color.green);
                 return 1;
             }
             else if (tali.collider.gameObject.layer != LayerMask.NameToLayer("Agent") && tali.collider.gameObject.layer != LayerMask.NameToLayer("Obstacle"))
             {
-                Debug.DrawLine(a, b, Color.red);
-                Debug.Log("X: " + tali.collider.gameObject.name + " | " + LayerMask.LayerToName(tali.collider.gameObject.layer));
                 return -1;
             }
             else
             {
-                Debug.DrawLine(a, b, c);
                 return 0;
             }
         }
@@ -221,24 +220,19 @@ public class AgentManager : MonoBehaviour
         {
             if (tali.collider.gameObject.layer == LayerMask.NameToLayer("Target"))
             {
-                Debug.DrawLine(b, a, Color.green);
                 return 1;
             }
             else if (tali.collider.gameObject.layer != LayerMask.NameToLayer("Agent") && tali.collider.gameObject.layer != LayerMask.NameToLayer("Obstacle"))
             {
-                Debug.DrawLine(b, a, Color.red);
-                Debug.Log("X: " + tali.collider.gameObject.name + " | " + LayerMask.LayerToName(tali.collider.gameObject.layer));
                 return -1;
             }
             else
             {
-                Debug.DrawLine(b, a, c);
                 return 0;
             }
         }
         else
         {
-            Debug.DrawLine(a, b, c);
             return 0;
         }
     }
