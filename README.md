@@ -1,5 +1,5 @@
 # Team-Based Competitive Multi Agent System
-Sistem yang melakukan interaksi antara satu agen dengan agen lainnya menggunakan reinforcement learning (MLAgents Unity). Buku panduan ada di file bernama "Manual Guide.pdf" dan bisa didownload di bagian release v1.0.
+Sistem yang melakukan interaksi antara satu agen dengan agen lainnya menggunakan reinforcement learning (MLAgents Unity). Buku panduan ada di file bernama "Manual_Guide.pdf" dan bisa didownload di bagian release v1.0.
 ![Screenshot](Thumbnail.png)
 
 # Fitur Utama
