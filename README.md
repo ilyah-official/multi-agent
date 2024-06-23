@@ -9,6 +9,8 @@ Sistem yang melakukan interaksi antara satu agen dengan agen lainnya menggunakan
 4. Sistem hukuman (punishment)
 5. Reinforcement learning based
 
-# Arsitektur / Flow-Chart secara keseluruhan
-Berikut adalah gambar arsitektur dari simulasi yang telah dibuat:
+# Flow Chart secara keseluruhan
+Berikut adalah gambar flow chart dari simulasi yang telah dibuat:
 ![Screenshot](Architecture.png)
+
+Secara umum, flow chart ini terdiri dari tiga bagian utama. Bagian pertama adalah persiapan dua buah model agen. Bagian kedua adalah melatih kedua model agen dalam satu environment. Latihan dilakukan secara terpisah sehingga tidak langsung dilakukan duel. Bagian ketiga adalah bagian pengujian. Model 1 dan model 2 yang telah dilatih secara terpisah pada bagian kedua, akan dipakai dalam satu environment yang sama untuk melihat model yang memiliki kinerja terbaik.
