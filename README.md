@@ -1,16 +1,15 @@
 # Team-Based Competitive Multi Agent System
-Sistem yang melakukan interaksi antara satu agen dengan agen lainnya menggunakan reinforcement learning (MLAgents Unity). Buku panduan ada di file bernama "Manual_Guide.pdf" dan bisa didownload di bagian release v1.0.
+A system that enables interaction between one agent and another using reinforcement learning (MLAgents Unity). The user manual is available in the file named "Manual_Guide.pdf" and can be downloaded in the release v1.0 section.
 ![Screenshot](Thumbnail.png)
 
-# Fitur Utama
-1. Dua buah tim yaitu kuning dan biru
-2. Sistem kolaborasi terjadi dalam satu tim (interaksi terjadi pada agen dalam satu tim)
-3. Sistem kompetisi terjadi dalam dua tim (interaksi terjadi antar semua agen)
-4. Sistem hukuman (punishment)
-5. Reinforcement learning based
+# Main Features
+1. Two teams: Yellow and Blue
+2. Collaboration system within a team (interaction occurs among agents in the same team)
+3. Competition system between two teams (interaction occurs among all agents)
+4. Punishment system
+5. Reinforcement learning
 
-# Flow Chart secara keseluruhan
-Berikut adalah gambar flow chart dari simulasi yang telah dibuat:
+# Flow Chart
 ![Screenshot](Architecture.png)
 
-Secara umum, flow chart ini terdiri dari tiga bagian utama. Bagian pertama adalah persiapan dua buah model agen. Bagian kedua adalah melatih kedua model agen dalam satu environment. Latihan dilakukan secara terpisah sehingga tidak langsung dilakukan duel. Bagian ketiga adalah bagian pengujian. Model 1 dan model 2 yang telah dilatih secara terpisah pada bagian kedua, akan dipakai dalam satu environment yang sama untuk melihat model yang memiliki kinerja terbaik.
+In general, this flowchart consists of three main parts. The first part is the preparation of two agent models. The second part involves training both agent models within the same environment. The training is conducted separately, so they do not immediately compete against each other. The third part is the testing phase. Model 1 and Model 2, which were trained separately in the second part, will be used in the same environment to determine which model performs best.
